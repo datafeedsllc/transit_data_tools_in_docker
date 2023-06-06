@@ -100,6 +100,7 @@
                     <target>11</target>
                 </configuration>
             </plugin>
+            <!--
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
@@ -113,20 +114,15 @@
                 </executions>
                 <configuration>
                     <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
-                    <!-- the below line will automatically generate the git properties file which is needed for the
-                     SeverController to fully function.
-                    -->
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
                     <injectAllReactorProjects>true</injectAllReactorProjects>
-                    <!-- "git describe always" needed to keep GitHub actions from failing
-                          See: https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/61#issuecomment-68037525
-                     -->
                     <gitDescribe>
                         <skip>false</skip>
                         <always>true</always>
                     </gitDescribe>
                 </configuration>
             </plugin>
+            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
