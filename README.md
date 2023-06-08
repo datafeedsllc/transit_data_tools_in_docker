@@ -1,4 +1,9 @@
-# transit_data_tools_in_docker
-
-4 dockers using docker compose
-In progress: Auth0 implementation
+# transit_data_tools  
+  
+3 dockers using docker compose - 
+  datatools-server
+  mongo
+  postgis.
+  
+However, datatools-ui was running locally, not in docker.
+  

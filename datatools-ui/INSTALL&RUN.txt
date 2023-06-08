@@ -1,0 +1,5 @@
+#  node:14
+
+yarn
+
+yarn run mastarm build --env dev --serve --proxy http://localhost:4000/api 

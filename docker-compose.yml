@@ -10,23 +10,6 @@ volumes:
   datatools_postgis_dbbackups:
 
 services:
-  datatools-ui:
-    container_name: datatools-ui
-    build:
-      context: ./datatools-ui/
-    networks:
-      - napote
-    links:
-      - datatools-server
-    depends_on:
-      - datatools-server
-    ports:
-      - "9966:9966"
-    volumes:
-      - type: bind
-        source: ./datatools-server/configurations/default/
-        target: /config
-
   datatools-server:
     container_name: datatools-server
     build:
