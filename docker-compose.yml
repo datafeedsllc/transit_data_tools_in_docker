@@ -65,7 +65,7 @@ services:
       - datatools-server
       - datatools-ui
     ports:
-      - "8080:8081"
+      - "8080:8080"
 
   datatools-postgis:
     container_name: datatools-postgis
