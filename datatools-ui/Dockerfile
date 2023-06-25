@@ -1,6 +1,7 @@
 #FROM node:10
-FROM node:14
-
+#FROM node:14.17.3
+#FROM node:12.13.0
+FROM node:14.18.1-buster
 #ENV VERSION=v2.0.0
 
 #RUN echo "deb http://archive.debian.org/debian/ stretch main contrib non-free" > /etc/apt/sources.list
@@ -20,7 +21,9 @@ COPY . /opt/datatools-ui
 
 WORKDIR /opt/datatools-ui
 
-#ADD ./config/*.yml /config/
+RUN rm -f /config/
+
+ADD ./configurations/default/*.yml /config/
 
 RUN yarn
 
@@ -30,5 +33,6 @@ EXPOSE 9966
 
 
 CMD envsubst < /config/env.yml > /opt/datatools-ui/configurations/default/env.yml && \
-    $(npm bin)/mastarm build --env production && serve -p 9966
+	yarn start -c /config/env.yml
+#    $(npm bin)/mastarm build --env production && serve -p 9966
 

@@ -1,8 +1,0 @@
-# 3.8.7-openjdk-18 , maven
-
-mvn package -DskipTests
-
-
-# Launch server
-java -XX:MaxRAMPercentage=95 -jar datatools-server.jar ./config/env.yml ./config/server.yml
-
