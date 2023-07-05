@@ -24,7 +24,7 @@ services:
       - "9966:9966"
     volumes:
       - type: bind
-        source: ./datatools-server/configurations/default/
+        source: ./datatools-ui/configurations/default/
         target: /config
 
   datatools-server:
