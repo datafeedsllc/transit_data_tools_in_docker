@@ -54,6 +54,10 @@ services:
     ports:
       - "27017:27017"
     command: mongod --dbpath /data/db --nojournal --oplogSize 16 --noauth
+    volumes:
+      - type: bind
+        source: ./mongod_db/
+        target: /data/db
 
   datatools-nginx:
     restart: always
@@ -70,9 +74,14 @@ services:
   datatools-postgis:
     container_name: datatools-postgis
     image: kartoza/postgis:9.6-2.4
+    #image: kartoza/postgis:15-3.3--v2023.07.29
+    #volumes:
+    #  - datatools_postgis:/var/lib/postgresql
+    #  - datatools_postgis_dbbackups:/backups
     volumes:
-      - datatools_postgis:/var/lib/postgresql
-      - datatools_postgis_dbbackups:/backups
+      - type: bind
+        source: ./postgis_db/postgresql_db/
+        target: /var/lib/postgresql
     environment:
       - POSTGRES_DB=gtfs_storage_db
       - POSTGRES_USER=postgres
